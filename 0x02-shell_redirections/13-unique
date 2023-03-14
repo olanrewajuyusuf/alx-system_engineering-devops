@@ -1,0 +1,2 @@
+#!/bin/bash
+tr ' ' '\n' | sort | uniq -d | comm -23 - <(sort -u)
