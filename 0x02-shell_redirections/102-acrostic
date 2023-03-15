@@ -1,0 +1,2 @@
+#!/bin/bash
+sed -e 's/\(^\|\n)\(.\)/\2/g' | printf "\n"
