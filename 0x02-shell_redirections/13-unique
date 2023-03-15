@@ -1,2 +1,2 @@
 #!/bin/bash
-tr ' ' '\n' | sort | uniq -c | grep -E '\b1\s' | sed 's/^[ \t]*//' | cut -d' ' -f2-
+print(sorted([word for word in set(words) if words.count(word) == 1]))
