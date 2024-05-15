@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Displays Best School and Hi 1time
+# Initialize counter
+counter=0
+
+# Execute loop until counter reaches 10
+while [ $counter -lt 10 ]; do
+    if [ $counter -eq 8 ]; then
+        echo "Best School"
+        echo "Hi"
+    else
+        echo "Best School"
+    fi
+    # Increment counter
+    ((counter++))
+done

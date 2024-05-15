@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Displays Best School and bad luck in 4pos
+# then good luck in 8pos
+
+#Initialize counter
+counter=0
+
+while [ $counter -lt 10 ]; do
+	if [ $counter -eq 3 ]; then
+		echo "bad luck"
+	elif [ $counter -eq 7 ]; then
+		echo "good luck"
+	else
+		echo "Best School"
+	fi
+	((counter++))
+done
