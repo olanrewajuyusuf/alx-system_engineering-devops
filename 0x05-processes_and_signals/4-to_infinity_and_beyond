@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# displays To infinity and beyond indefinitely.
+display_message() {
+    echo "To infinity and beyond"
+}
+
+# Trap the SIGINT signal (Ctrl+C) to exit the loop gracefully
+trap 'echo ""; exit' SIGINT
+
+# Infinite loop to display the message and sleep for 2 seconds
+while true; do
+    display_message
+    sleep 2
+done
