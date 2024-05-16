@@ -16,6 +16,7 @@ interrupt_process() {
 # Function to handle SIGQUIT signal
 quit_process() {
     rm -f /var/run/myscript.pid
+    terminate_process
     exit
 }
 
