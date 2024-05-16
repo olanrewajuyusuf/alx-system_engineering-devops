@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+# init script that manages manage_my_process
+#!/bin/bash
+
+# Set the path to the manage_my_process script
+MANAGE_SCRIPT="./manage_my_process"
+
+# Function to start the manage_my_process script
+start() {
+    "$MANAGE_SCRIPT" & echo "$!" > /var/run/my_process.pid
+    echo "manage_my_process started"
+}
+
+# Function to stop the manage_my_process script
+stop() {
+    pid=$(cat /var/run/my_process.pid)
+    kill "$pid" && rm -f /var/run/my_process.pid
+    echo "manage_my_process stopped"
+}
+
+# Function to restart the manage_my_process script
+restart() {
+	pid=$(cat /var/run/my_process.pid)
+	kill "$pid" && rm -f /var/run/my_process.pid
+
+	"$MANAGE_SCRIPT" & echo "$!" > /var/run/my_process.pid
+    	echo "manage_my_process restarted"
+}
+
+# Determine action based on argument
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    restart)
+        restart
+        ;;
+    *)
+        echo "Usage: manage_my_process {start|stop|restart}"
+        exit 1
+        ;;
+esac
+
