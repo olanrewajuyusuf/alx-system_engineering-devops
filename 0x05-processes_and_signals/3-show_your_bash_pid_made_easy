@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# displays the PID, along with the process name
+script_pid=$$
+
+for pid in /proc/*/; do
+	pid=$(basename "$pid")
+	pname=$(cat "/proc/$pid/cmdline" 2>/dev/null | tr -d '\0' | grep -o 'bash' | head -n1)
+	if [[ -n "$pname" ]]; then
+		echo "$pid $pname"
+	fi
+done | grep -v "$script_pid"
