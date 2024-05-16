@@ -5,7 +5,7 @@ pid=$(pgrep -f "4-to_infinity_and_beyond")
 # Check if the process exists
 if [ -n "$pid" ]; then
     # Use pkill to stop the process
-    pkill -f "4-to_infinity_and_beyond" && echo "Terminated"
+    pkill -f "4-to_infinity_and_beyond"
 else
     echo "Process not found."
 fi
